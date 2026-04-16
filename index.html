@@ -4,52 +4,83 @@
 <title>Welcome</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
 
-  background: url("bipsu.jpg") no-repeat center center/cover;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  overflow: hidden;
+
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("bipsu.jpg");
+
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
 }
 
-/* DARK OVERLAY */
-.overlay {
-  background: rgba(0,0,0,0.5);
-  height: 100vh;
-  position: relative;
-}
-
-/* WELCOME TEXT (CENTER) */
-.welcome {
+/* PARTICLES CANVAS */
+#particles {
   position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 40px;
-  text-align: center;
-
-  animation: fadeIn 2s ease-in-out;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-/* BUTTON LEFT CENTER */
-.btn-container {
+/* CONTENT LEFT */
+.left {
   position: absolute;
   top: 50%;
-  left: 50px;
+  left: 80px;
   transform: translateY(-50%);
+  color: white;
+  z-index: 2;
 }
 
-/* BUTTON STYLE */
+/* TYPING TEXT */
+.typing {
+  font-size: 55px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-right: 3px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.7s infinite;
+}
+
+/* ANIMATIONS */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 350px }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* SUBTEXT */
+.left p {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* BUTTON */
 button {
-  padding: 15px 30px;
+  margin-top: 30px;
+  padding: 15px 40px;
   font-size: 18px;
 
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
 
   background: linear-gradient(45deg, gold, orange);
   color: black;
@@ -57,20 +88,20 @@ button {
   cursor: pointer;
 
   transition: 0.3s;
-  box-shadow: 0 0 15px gold;
+  box-shadow: 0 0 20px gold;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px orange;
+  transform: scale(1.2);
+  box-shadow: 0 0 50px orange;
 }
 
-/* ANIMATION TEXT */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translate(-50%, -70%);}
-  to {opacity: 1; transform: translate(-50%, -50%);}
+/* CLICK */
+button:active {
+  transform: scale(0.9);
 }
+
 </style>
 
 </head>
@@ -93,17 +124,79 @@ window.onload = function() {
 </script>
 
 <!-- IMONG CONTENT -->
-<div class="overlay">
-  <div class="welcome">
+<div class="left">
+  <div class="typing">
     WELCOME TO GROUP 1
   </div>
+  <p>
+    Biliran Province State University
+  </p>
 
-  <div class="btn-container">
+  
     <a href="group1.html">
-      <button>ENTER</button>
+      <button onclick="playMusic()">ENTER</button>
     </a>
   </div>
-</div>
+<script>
+
+/* MUSIC (plays on click para dili ma-block) */
+function playMusic() {
+  let music = document.getElementById("bgmusic");
+  music.play();
+}
+
+/* PARTICLES BACKGROUND */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 3;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.speedY = Math.random() * 1 - 0.5;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255,215,0,0.😎";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function init() {
+  for (let i = 0; i < 80; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+
+  requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+</script>
 
 
 </body>
