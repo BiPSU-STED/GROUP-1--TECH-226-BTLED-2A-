@@ -3,55 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maison Aly - Renalyn Jabuen</title>
+<title>Maison Aly</title>
 
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
+  font-family: 'Georgia', serif;
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+.brand {
+  color: gold;
+  font-size: 18px;
 }
 
 /* CONTAINER */
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 30px;
+  padding: 20px;
 }
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 15px;
   padding: 30px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   text-align: center;
-  animation: fadeIn 1s ease;
-}
-
-/* TITLE */
-h1 {
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  opacity: 0.8;
-  margin-bottom: 20px;
-}
-
-/* BRAND TITLE */
-.brand {
-  color: #f9d423;
-  margin-top: 10px;
+  box-shadow: 0 0 30px rgba(255,215,0,0.1);
 }
 
 /* LOGO */
 .logo {
-  width: 300px;
-  border-radius: 12px;
+  width: 120px;
   margin: 20px 0;
+  border-radius: 10px;
 }
 
 /* SECTION */
@@ -59,9 +58,14 @@ h1 {
   margin-top: 30px;
 }
 
+.section h2 {
+  color: gold;
+  letter-spacing: 2px;
+}
+
 /* TEXT */
 .text {
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: justify;
   max-width: 700px;
   margin: auto;
@@ -69,9 +73,14 @@ h1 {
 
 /* IMAGE */
 .promo {
-  width: 400px;
-  border-radius: 12px;
+  width: 220px;
+  border-radius: 10px;
   margin-top: 15px;
+  transition: 0.3s;
+}
+
+.promo:hover {
+  transform: scale(1.05);
 }
 
 /* VIDEO */
@@ -79,7 +88,7 @@ iframe {
   width: 100%;
   max-width: 450px;
   height: 250px;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-top: 20px;
 }
 
@@ -89,7 +98,7 @@ iframe {
   margin-top: 30px;
   padding: 10px 25px;
   border-radius: 25px;
-  background: linear-gradient(45deg, #f9d423, #ff4e50);
+  background: gold;
   color: black;
   text-decoration: none;
   font-weight: bold;
@@ -97,14 +106,19 @@ iframe {
 }
 
 .back-btn:hover {
+  background: white;
   transform: scale(1.1);
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
+/* FADE ANIMATION */
+.card {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -112,18 +126,17 @@ iframe {
   }
 }
 </style>
-
 </head>
 
 <body>
 
+<div class="header">
+  <h1>Renalyn Jabuen</h1>
+  <div class="brand">MAISON ALY CLOTHES</div>
+</div>
+
 <div class="container">
   <div class="card">
-
-    <h1>Renalyn Jabuen</h1>
-    <div class="subtitle">Project Presentation</div>
-
-    <h2 class="brand">MAISON ALY CLOTHES</h2>
 
     <img src="logo1.jpg" class="logo">
 
@@ -131,12 +144,7 @@ iframe {
     <div class="section">
       <h2>About</h2>
       <p class="text">
-        The Maison Aly Clothes logo represents elegance, creativity, and personal identity. 
-        The name “Aly” is inspired by the owner’s name, Renalyn, giving the brand a meaningful 
-        and personal touch. The design features a hanger integrated within a house shape, 
-        symbolizing both fashion and comfort—clothing that feels like home. The gold color 
-        reflects sophistication, quality, and timeless style, while the overall design highlights 
-        the brand’s focus on clothing as a passion-driven business.
+        Maison Aly Clothes represents elegance, creativity, and identity...
       </p>
     </div>
 
@@ -144,9 +152,7 @@ iframe {
     <div class="section">
       <h2>Vision</h2>
       <p class="text">
-        Maison Aly Clothes envisions becoming a trusted and inspiring clothing brand 
-        that represents elegance, creativity, and individuality, bringing confidence 
-        and comfort to every person.
+        To become a leading fashion brand that inspires confidence and individuality.
       </p>
     </div>
 
@@ -154,22 +160,20 @@ iframe {
     <div class="section">
       <h2>Mission</h2>
       <p class="text">
-        Our mission is to provide high-quality, stylish, and affordable clothing that 
-        reflects personal identity while promoting comfort, creativity, and confidence 
-        in every design.
+        To provide stylish, high-quality, and meaningful clothing that connects fashion with identity.
       </p>
     </div>
 
-    <!-- PROMO -->
+    <!-- IMAGE -->
     <div class="section">
-      <h2>Sample Design</h2>
+      <h2>Collection</h2>
       <img src="picture2.jpg" class="promo">
     </div>
 
     <!-- VIDEO -->
     <div class="section">
-      <h2>Presentation Video</h2>
-      <iframe src="https://youtube.com/embed/quJqSu00Se4"></iframe>
+      <h2>Showcase</h2>
+      <iframe src="https://www.youtube.com/embed/quJqSu00Se4"></iframe>
     </div>
 
     <a href="group1.html" class="back-btn">← Back</a>
