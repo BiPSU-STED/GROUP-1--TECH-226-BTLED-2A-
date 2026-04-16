@@ -77,26 +77,34 @@ button:hover {
 
 <body>
 
+<body>
+
 <!-- MUSIC -->
-<audio autoplay loop hidden>
+<audio id="bgmusic" autoplay loop muted>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="overlay">
+<script>
+window.onload = function() {
+  let music = document.getElementById("bgmusic");
+  music.muted = false;
+  music.play();
+}
+</script>
 
-  <!-- WELCOME TEXT -->
+<!-- IMONG CONTENT -->
+<div class="overlay">
   <div class="welcome">
     WELCOME TO GROUP 1
   </div>
 
-  <!-- BUTTON LEFT -->
   <div class="btn-container">
     <a href="group1.html">
       <button>ENTER</button>
     </a>
   </div>
-
 </div>
+
 
 </body>
 </html>
