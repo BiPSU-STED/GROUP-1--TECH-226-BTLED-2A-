@@ -8,178 +8,135 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Georgia', serif;
     }
 
     body {
-      background: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
+      background: #ffffff;
+      color: #111;
     }
 
-    /* INTRO */
-    .intro {
-      height: 100vh;
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url("posterjomari.jpg") center/cover no-repeat;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       flex-direction: column;
-      animation: fadeOut 3s forwards;
-      animation-delay: 2.5s;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease;
     }
 
-    .intro h1 {
-      font-size: 40px;
+    .hero h1 {
+      font-size: 50px;
       letter-spacing: 5px;
-      color: #00f7ff;
-      text-shadow: 0 0 20px #00f7ff;
     }
 
-    @keyframes fadeOut {
-      to {opacity: 0; visibility: hidden;}
+    .hero p {
+      font-size: 18px;
+      margin-top: 10px;
+      letter-spacing: 3px;
     }
 
-    /* MAIN */
-    .main {
-      opacity: 0;
-      animation: showMain 2s forwards;
-      animation-delay: 3s;
+    /* SECTION STYLE */
+    .section {
+      display: flex;
+      padding: 60px 10%;
+      gap: 40px;
+      align-items: center;
     }
 
-    @keyframes showMain {
-      to {opacity: 1;}
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #f9f9f9;
     }
 
-    /* HEADER */
-    .header {
+    .text-box {
+      flex: 1;
+    }
+
+    .text-box h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      border-bottom: 3px solid black;
+      display: inline-block;
+    }
+
+    .text-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    .image-box {
+      flex: 1;
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* PROFILE */
+    .profile-section {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
     }
 
     .profile {
       width: 120px;
       border-radius: 50%;
-      border: 3px solid #00f7ff;
-      transition: 0.3s;
-    }
-
-    .profile:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px #00f7ff;
-    }
-
-    .title {
-      font-size: 30px;
-      margin-top: 10px;
-    }
-
-    .typing {
-      color: #00f7ff;
-      font-size: 14px;
-      letter-spacing: 3px;
-    }
-
-    /* GRID */
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding-bottom: 40px;
-    }
-
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(120deg, transparent, #00f7ff, transparent);
-      top: -50%;
-      left: -50%;
-      transform: rotate(25deg);
-      opacity: 0;
-      transition: 0.5s;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-      animation: glowMove 1s linear;
-    }
-
-    @keyframes glowMove {
-      from {transform: translateX(-100%) rotate(25deg);}
-      to {transform: translateX(100%) rotate(25deg);}
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #00f7ff44;
-    }
-
-    h2 {
-      color: #00f7ff;
       margin-bottom: 10px;
     }
 
-    .text {
-      font-size: 14px;
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    .promo {
-      width: 100%;
-      border-radius: 10px;
+    /* VIDEO */
+    .video {
+      text-align: center;
+      padding: 40px;
     }
 
     iframe {
-      width: 100%;
-      height: 220px;
+      width: 80%;
+      height: 300px;
       border-radius: 10px;
       border: none;
-    }
-
-    .full {
-      grid-column: span 2;
     }
 
     /* BUTTON */
     .btn {
       display: block;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 12px 30px;
-      border-radius: 30px;
-      border: none;
-      background: #00f7ff;
-      color: black;
-      font-weight: bold;
+      border: 2px solid black;
+      background: white;
       cursor: pointer;
       transition: 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #00f7ff;
+      background: black;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .container {
-        grid-template-columns: 1fr;
+    @media (max-width: 800px) {
+      .section {
+        flex-direction: column;
       }
-      .full {
-        grid-column: span 1;
+
+      .section:nth-child(even) {
+        flex-direction: column;
+      }
+
+      iframe {
+        width: 100%;
       }
     }
 
@@ -188,87 +145,70 @@
 
 <body>
 
-<!-- INTRO -->
-<div class="intro">
-  <h1>SINGZON APPAREL</h1>
+<!-- HERO -->
+<div class="hero">
+  <h1>SINGZON</h1>
+  <p>APPAREL COLLECTION</p>
 </div>
 
-<!-- MAIN -->
-<div class="main">
-
-  <!-- HEADER -->
-  <div class="header">
-    <img src="jomari.jpg" class="profile">
-    <div class="title">JOMARI SINGZON</div>
-    <div class="typing" id="typing"></div>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="container">
-
-    <div class="card">
-      <h2>About</h2>
-      <p class="text">
-        Fashion brand inspired by identity and passion. Designed for individuality, confidence, and modern lifestyle.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Vision</h2>
-      <p class="text">
-        To lead the fashion industry through creativity and innovation.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Mission</h2>
-      <p class="text">
-        Deliver stylish, high-quality, and expressive fashion pieces.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Collection</h2>
-      <img src="posterjomari.jpg" class="promo">
-    </div>
-
-    <div class="card full">
-      <h2>Showcase</h2>
-      <iframe src="https://www.youtube.com/embed/E-RIWZUdtcs"></iframe>
-    </div>
-
-  </div>
-
-  <!-- BUTTON -->
-  <button class="btn" onclick="playSound()">⬅ Back</button>
-
+<!-- PROFILE -->
+<div class="profile-section">
+  <img src="jomari.jpg" class="profile">
+  <h2>Jomari Singzon</h2>
 </div>
 
-<!-- AUDIO -->
-<audio id="sound">
-  <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3">
-</audio>
+<!-- ABOUT -->
+<div class="section">
+  <div class="text-box">
+    <h2>About</h2>
+    <p>
+      A fashion brand inspired by identity and passion. Singzon Apparel reflects 
+      individuality, confidence, and modern street style designed for everyday wear.
+    </p>
+  </div>
+  <div class="image-box">
+    <img src="logojomari.jpg">
+  </div>
+</div>
 
-<!-- JS -->
-<script>
-  // typing effect
-  let text = "MODERN STREETWEAR BRAND";
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 50);
-    }
-  }
-  type();
+<!-- VISION -->
+<div class="section">
+  <div class="text-box">
+    <h2>Vision</h2>
+    <p>
+      To become a leading clothing brand that inspires people to express 
+      themselves through style and confidence.
+    </p>
+  </div>
+  <div class="image-box">
+    <img src="posterjomari.jpg">
+  </div>
+</div>
 
-  // sound button
-  function playSound() {
-    document.getElementById("sound").play();
-    window.location.href = "group1.html";
-  }
-</script>
+<!-- MISSION -->
+<div class="section">
+  <div class="text-box">
+    <h2>Mission</h2>
+    <p>
+      To deliver high-quality, stylish, and affordable clothing that empowers 
+      individuals to showcase their unique identity.
+    </p>
+  </div>
+  <div class="image-box">
+    <img src="posterjomari.jpg">
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video">
+  <h2>Showcase</h2>
+  <iframe src="https://www.youtube.com/embed/E-RIWZUdtcs"></iframe>
+</div>
+
+<!-- BUTTON -->
+<a href="group1.html">
+  <button class="btn">⬅ Back</button>
+</a>
 
 </body>
 </html>
