@@ -4,103 +4,271 @@
   <title>Jomari Singzon</title>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial;
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* INTRO */
+    .intro {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeOut 3s forwards;
+      animation-delay: 2.5s;
+    }
+
+    .intro h1 {
+      font-size: 40px;
+      letter-spacing: 5px;
+      color: #00f7ff;
+      text-shadow: 0 0 20px #00f7ff;
+    }
+
+    @keyframes fadeOut {
+      to {opacity: 0; visibility: hidden;}
+    }
+
+    /* MAIN */
+    .main {
+      opacity: 0;
+      animation: showMain 2s forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes showMain {
+      to {opacity: 1;}
+    }
+
+    /* HEADER */
+    .header {
       text-align: center;
-      background: #f4f4f4;
+      padding: 30px;
     }
 
-    .box {
-      background: white;
-      padding: 20px;
-      margin: 50px auto;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px gray;
+    .profile {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid #00f7ff;
+      transition: 0.3s;
     }
 
-    img {
-      width: 150px;
-      border-radius: 10px;
+    .profile:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #00f7ff;
     }
 
-    button {
+    .title {
+      font-size: 30px;
       margin-top: 10px;
-      padding: 10px;
-      background: gold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
     }
+
+    .typing {
+      color: #00f7ff;
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+    /* GRID */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, #00f7ff, transparent);
+      top: -50%;
+      left: -50%;
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      animation: glowMove 1s linear;
+    }
+
+    @keyframes glowMove {
+      from {transform: translateX(-100%) rotate(25deg);}
+      to {transform: translateX(100%) rotate(25deg);}
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00f7ff44;
+    }
+
+    h2 {
+      color: #00f7ff;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .promo {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .full {
+      grid-column: span 2;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      background: #00f7ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00f7ff;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .full {
+        grid-column: span 1;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <img src="jomari.jpg" width="150">
-    <h2>Jomari Singzon</h2>
-    <p>SINGZON APPAREL.</p>
+<!-- INTRO -->
+<div class="intro">
+  <h1>SINGZON APPAREL</h1>
+</div>
 
+<!-- MAIN -->
+<div class="main">
 
+  <!-- HEADER -->
+  <div class="header">
+    <img src="jomari.jpg" class="profile">
+    <div class="title">JOMARI SINGZON</div>
+    <div class="typing" id="typing"></div>
+  </div>
 
-<div class="container">
-  <div class="card">
+  <!-- CONTENT -->
+  <div class="container">
 
-    <img src="logojomari.jpg" class="logo">
-
-    <!-- ABOUT -->
-    <div class="section">
+    <div class="card">
       <h2>About</h2>
       <p class="text">
-        Fashion brand inspired by identity and passion. The name “Singzon” 
-        comes from the owner’s last name, representing pride, authenticity, 
-        and a personal connection to the business. Driven by a deep interest 
-        in clothing and style, the brand was created to offer trendy, comfortable, 
-        and expressive pieces that reflect individuality. Singzon Apparel aims to 
-        combine modern aesthetics with everyday wear, empowering people to feel 
-        confident and stylish in what they wear
+        Fashion brand inspired by identity and passion. Designed for individuality, confidence, and modern lifestyle.
       </p>
     </div>
 
-    <!-- VISION -->
-    <div class="section">
+    <div class="card">
       <h2>Vision</h2>
       <p class="text">
-         To become a recognized and trusted clothing brand known for creativity, 
-        quality, and innovation, inspiring people to embrace their style and 
-        confidence while setting trends in the fashion industry.
+        To lead the fashion industry through creativity and innovation.
       </p>
     </div>
 
-    <!-- MISSION -->
-    <div class="section">
+    <div class="card">
       <h2>Mission</h2>
       <p class="text">
-         Singzon Apparel is committed to creating stylish, high-quality, and 
-        comfortable clothing that reflects individuality and confidence. 
-        We aim to provide trendy and affordable fashion that allows people to 
-        express their unique identity through what they wear.
+        Deliver stylish, high-quality, and expressive fashion pieces.
       </p>
     </div>
 
-    <!-- IMAGE -->
-    <div class="section">
+    <div class="card">
       <h2>Collection</h2>
       <img src="posterjomari.jpg" class="promo">
     </div>
 
-    <!-- VIDEO -->
-    <div class="section">
+    <div class="card full">
       <h2>Showcase</h2>
       <iframe src="https://www.youtube.com/embed/E-RIWZUdtcs"></iframe>
     </div>
 
-    
-    <a href="group1.html">
-      <button>⬅ Back</button>
-    </a>
   </div>
+
+  <!-- BUTTON -->
+  <button class="btn" onclick="playSound()">⬅ Back</button>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="sound">
+  <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3">
+</audio>
+
+<!-- JS -->
+<script>
+  // typing effect
+  let text = "MODERN STREETWEAR BRAND";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 50);
+    }
+  }
+  type();
+
+  // sound button
+  function playSound() {
+    document.getElementById("sound").play();
+    window.location.href = "group1.html";
+  }
+</script>
 
 </body>
 </html>
