@@ -13,7 +13,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* 🌈 ANIMATED BACKGROUND */
+/* 🌈 BACKGROUND */
 body {
   background: linear-gradient(-45deg, #0f2027, #203a43, #000000, #00c6ff);
   background-size: 400% 400%;
@@ -31,8 +31,7 @@ body {
 /* TITLE */
 h1 {
   margin-top: 40px;
-  font-size: 42px;
-  letter-spacing: 4px;
+  font-size: 40px;
   text-shadow: 0 0 15px cyan;
 }
 
@@ -41,14 +40,14 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 30px;
   margin-top: 60px;
 }
 
 /* CARD */
 .card {
-  width: 240px;
-  height: 320px;
+  width: 220px;
+  height: 300px;
   border-radius: 20px;
   background: rgba(255,255,255,0.07);
   backdrop-filter: blur(10px);
@@ -56,27 +55,22 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding-top: 25px;
-  transition: 0.3s;
   cursor: pointer;
+  transition: 0.3s;
   box-shadow: 0 0 20px rgba(0,255,255,0.2);
-}
-
-/* SIMPLE GLOW BORDER (SAFE – walay bug) */
-.card {
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 40px cyan;
-  border: 2px solid cyan;
+  box-shadow: 0 0 35px cyan;
 }
 
 /* IMAGE */
 .card img {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid cyan;
@@ -84,35 +78,50 @@ h1 {
 
 /* NAME */
 .name {
-  margin-top: 25px;
-  font-size: 18px;
+  margin-top: 20px;
   font-weight: bold;
   color: cyan;
 }
 
-/* BACK BUTTON */
-.back-btn {
-  display: inline-block;
-  margin: 60px;
-  padding: 12px 35px;
-  border-radius: 30px;
-  background: linear-gradient(45deg, cyan, magenta);
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 0 15px cyan;
+/* 🔵 RIPPLE */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(0,255,255,0.4);
+  animation: rippleAnim 0.5s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 /* FADE */
 .fade-out {
-  animation: fadeOut 0.4s forwards;
+  animation: fadeOut 0.4s ease forwards;
 }
 
 @keyframes fadeOut {
   to {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
+}
+
+/* BUTTON */
+.back-btn {
+  margin-top: 50px;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 25px;
+  background: cyan;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -126,7 +135,7 @@ h1 {
   <div class="card"
        onmouseenter="playSound('edelyn.mp3')"
        onmouseleave="stopSound()"
-       onclick="goToPage('edelynchochesa.html')">
+       onclick="handleClick(event,'edelynchochesa.html','edelyn.mp3')">
     <img src="edelyn.jpg">
     <div class="name">Edelyn</div>
   </div>
@@ -134,7 +143,7 @@ h1 {
   <div class="card"
        onmouseenter="playSound('jamaica.mp3')"
        onmouseleave="stopSound()"
-       onclick="goToPage('jamaicasinangote.html')">
+       onclick="handleClick(event,'jamaicasinangote.html','jamaica.mp3')">
     <img src="jamaica.jpg">
     <div class="name">Jamaica</div>
   </div>
@@ -142,7 +151,7 @@ h1 {
   <div class="card"
        onmouseenter="playSound('jomari.mp3')"
        onmouseleave="stopSound()"
-       onclick="goToPage('jomarisingzon.html')">
+       onclick="handleClick(event,'jomarisingzon.html','jomari.mp3')">
     <img src="jomari.jpg">
     <div class="name">Jomari</div>
   </div>
@@ -150,7 +159,7 @@ h1 {
   <div class="card"
        onmouseenter="playSound('renalyn.mp3')"
        onmouseleave="stopSound()"
-       onclick="goToPage('renalynjabuen.html')">
+       onclick="handleClick(event,'renalynjabuen.html','renalyn.mp3')">
     <img src="renalyn.jpg">
     <div class="name">Renalyn</div>
   </div>
@@ -158,7 +167,7 @@ h1 {
   <div class="card"
        onmouseenter="playSound('rica.mp3')"
        onmouseleave="stopSound()"
-       onclick="goToPage('ricacautiver.html')">
+       onclick="handleClick(event,'ricacautiver.html','rica.mp3')">
     <img src="rica.jpg">
     <div class="name">Rica</div>
   </div>
@@ -170,13 +179,14 @@ h1 {
 <script>
 let currentSound = null;
 
+// 🔊 HOVER SOUND (desktop)
 function playSound(file) {
   if (currentSound) {
     currentSound.pause();
     currentSound.currentTime = 0;
   }
   currentSound = new Audio(file);
-  currentSound.play();
+  currentSound.play().catch(()=>{});
 }
 
 function stopSound() {
@@ -186,13 +196,35 @@ function stopSound() {
   }
 }
 
-function goToPage(link) {
+// 🔵 CLICK SYSTEM (ripple + sound + smooth redirect)
+function handleClick(e, link, soundFile) {
+
   stopSound();
-  document.body.classList.add("fade-out");
+
+  let sound = new Audio(soundFile);
+  sound.play().catch(()=>{});
+
+  // ripple
+  let circle = document.createElement("span");
+  circle.classList.add("ripple");
+
+  let rect = e.currentTarget.getBoundingClientRect();
+  circle.style.left = e.clientX - rect.left + "px";
+  circle.style.top = e.clientY - rect.top + "px";
+
+  e.currentTarget.appendChild(circle);
 
   setTimeout(() => {
+    circle.remove();
+  }, 500);
+
+  // stop bg animation (fix flash)
+  document.body.style.animation = "none";
+
+  setTimeout(() => {
+    document.body.classList.add("fade-out");
     window.location.href = link;
-  }, 400);
+  }, 350);
 }
 </script>
 
