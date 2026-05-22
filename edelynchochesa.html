@@ -1,236 +1,307 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Edelyn Chochesa</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
     }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(-45deg, #ff758c, #ff7eb3, #6a11cb, #2575fc);
-      background-size: 400% 400%;
-      animation: bgMove 10s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    body{
+      min-height:100vh;
+      background:linear-gradient(-45deg,#ff758c,#ff7eb3,#6a11cb,#2575fc);
+      background-size:400% 400%;
+      animation:bgMove 10s ease infinite;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
     }
 
-    @keyframes bgMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    @keyframes bgMove{
+      0%{
+        background-position:0% 50%;
+      }
+
+      50%{
+        background-position:100% 50%;
+      }
+
+      100%{
+        background-position:0% 50%;
+      }
     }
 
-    .container {
-      width: 90%;
-      max-width: 900px;
-      backdrop-filter: blur(15px);
-      background: rgba(255,255,255,0.1);
-      border-radius: 25px;
-      padding: 30px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      color: white;
-      animation: fadeIn 1.5s ease;
+    .container{
+      width:90%;
+      max-width:900px;
+      backdrop-filter:blur(15px);
+      background:rgba(255,255,255,0.1);
+      border-radius:25px;
+      padding:30px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.3);
+      color:white;
+      animation:fadeIn 1.5s ease;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     /* HEADER */
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
+
+    .header{
+      text-align:center;
+      margin-bottom:30px;
     }
 
-    .profile {
-      width: 130px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 10px;
-      transition: 0.3s;
+    .profile{
+      width:130px;
+      height:130px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid white;
+      margin-bottom:10px;
+      transition:0.3s;
     }
 
-    .profile:hover {
-      transform: scale(1.1);
+    .profile:hover{
+      transform:scale(1.1);
     }
 
-    .title {
-      font-size: 28px;
-      font-weight: bold;
+    .title{
+      font-size:30px;
+      font-weight:bold;
+      margin-bottom:5px;
     }
 
-    .subtitle {
-      font-size: 14px;
-      opacity: 0.8;
+    .subtitle{
+      font-size:15px;
+      opacity:0.8;
+      margin-bottom:15px;
     }
 
-    .logo {
-      width: 300px;
-      margin-top: 10px;
+    .logo{
+      width:250px;
+      max-width:100%;
+      border-radius:15px;
     }
 
-    /* GRID SECTIONS */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    /* GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
     }
 
-    .box {
-      background: rgba(255,255,255,0.15);
-      padding: 20px;
-      border-radius: 15px;
-      transition: 0.3s;
+    .box{
+      background:rgba(255,255,255,0.15);
+      padding:20px;
+      border-radius:15px;
+      transition:0.3s;
     }
 
-    .box:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: rgba(255,255,255,0.25);
+    .box:hover{
+      transform:translateY(-5px) scale(1.02);
+      background:rgba(255,255,255,0.25);
     }
 
-    .box h2 {
-      margin-bottom: 10px;
-      font-size: 18px;
-      border-bottom: 2px solid white;
-      padding-bottom: 5px;
+    .box h2{
+      margin-bottom:10px;
+      font-size:20px;
+      border-bottom:2px solid white;
+      padding-bottom:5px;
     }
 
-    .text {
-      font-size: 13px;
-      line-height: 1.6;
+    .text{
+      font-size:14px;
+      line-height:1.7;
     }
 
-    .promo {
-      width: 100%;
-      border-radius: 10px;
+    .promo{
+      width:100%;
+      border-radius:10px;
     }
 
-    iframe {
-      width: 100%;
-      height: 180px;
-      border-radius: 10px;
-      border: none;
+    iframe{
+      width:100%;
+      height:300px;
+      border:none;
+      border-radius:10px;
     }
 
-    /* FULL WIDTH SECTION */
-    .full {
-      grid-column: span 2;
+    .full{
+      grid-column:span 2;
     }
 
     /* BUTTON */
-    .btn {
-      display: block;
-      margin: 25px auto 0;
-      padding: 12px 25px;
-      border-radius: 30px;
-      border: none;
-      background: white;
-      color: #333;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 25px;
+      border:none;
+      border-radius:30px;
+      background:white;
+      color:#333;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:15px;
     }
 
-    .btn:hover {
-      transform: scale(1.1);
-      background: gold;
+    .btn:hover{
+      transform:scale(1.1);
+      background:gold;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .grid {
-        grid-template-columns: 1fr;
+
+    @media(max-width:700px){
+
+      .grid{
+        grid-template-columns:1fr;
       }
 
-      .full {
-        grid-column: span 1;
+      .full{
+        grid-column:span 1;
       }
+
     }
 
   </style>
+
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <img src="edelyn.jpg" class="profile">
-    <div class="title">Edelyn Chochesa</div>
-    <div class="subtitle">THE HEARTY POT</div>
-    <img src="logo edelyn.jpg" class="logo">
+    <!-- HEADER -->
+
+    <div class="header">
+
+      <img src="edelyn.jpg" class="profile">
+
+      <div class="title">
+        Edelyn Chochesa
+      </div>
+
+      <div class="subtitle">
+        THE HEARTY POT
+      </div>
+
+      <img src="logo edelyn.jpg" class="logo">
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="grid">
+
+      <div class="box">
+
+        <h2>About</h2>
+
+        <p class="text">
+          My logo represents a food brand that focuses on warm,
+          comforting meals. The bowl symbolizes hearty food,
+          steam shows freshness, and the flame reflects passion
+          in cooking. The chef hat represents professionalism,
+          while the heart symbolizes love in every meal served.
+        </p>
+
+      </div>
+
+      <div class="box">
+
+        <h2>Vision</h2>
+
+        <p class="text">
+          To become a trusted destination for affordable and
+          comforting meals where people feel at home.
+        </p>
+
+      </div>
+
+      <div class="box">
+
+        <h2>Mission</h2>
+
+        <p class="text">
+          To serve delicious meals with care, provide great
+          service, and create a warm and welcoming space
+          for everyone.
+        </p>
+
+      </div>
+
+      <div class="box">
+
+        <h2>Collection</h2>
+
+        <img src="posteredelyn.jpg" class="promo">
+
+      </div>
+
+      <div class="box full">
+
+        <h2>Showcase</h2>
+
+        <iframe src="https://www.youtube.com/embed/w8gnXK4F1aA"></iframe>
+
+      </div>
+
+      <!-- SUBMISSION -->
+
+      <div class="box full" style="text-align:center;">
+
+        <h2>Submission Details</h2>
+
+        <p class="text">
+          <b>SUBMITTED BY :</b> EDELYN T. COCHESA
+        </p>
+
+        <br>
+
+        <p class="text">
+          <b>SUBMITTED TO :</b> MR. TITO AMERIGO V. CUSTODIO
+        </p>
+
+        <br>
+
+        <p class="text">
+          <b>TEC 226</b>
+        </p>
+
+        <!-- BACK BUTTON -->
+
+        <button class="btn" onclick="history.back()">
+          ← BACK
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- CONTENT -->
-  <div class="grid">
-
-    <div class="box">
-      <h2>About</h2>
-      <p class="text">
-        My logo represents a food brand that focuses on warm, comforting meals. 
-        The bowl symbolizes hearty food, steam shows freshness, and the flame 
-        reflects passion in cooking. The chef hat represents professionalism, 
-        while the heart symbolizes love in every meal served.
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>Vision</h2>
-      <p class="text">
-        To become a trusted destination for affordable and comforting meals 
-        where people feel at home.
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>Mission</h2>
-      <p class="text">
-        To serve delicious meals with care, provide great service, and create 
-        a warm and welcoming space for everyone.
-      </p>
-    </div>
-
-    <div class="box">
-      <h2>Collection</h2>
-      <img src="posteredelyn.jpg" class="promo">
-    </div>
-
-    <div class="box full">
-      <h2>Showcase</h2>
-      <iframe src="https://www.youtube.com/embed/w8gnXK4F1aA"></iframe>
-    </div>
-
- <!-- SUBMISSION -->
-    <div class="box full" style="text-align:center; margin-top:20px;">
-      <h2>Submission Details</h2>
-
-      <p class="text">
-        <b>SUBMITTED BY :</b> EDELYN T. COCHESA
-      </p>
-
-      <br>
-
-      <p class="text">
-        <b>SUBMITTED TO :</b> MR. TITO AMERIGO V. CUSTODIO
-      </p>
-
-      <br>
-
-      <p class="text">
-        <b>TEC 226</b>
-      </p>
-    </div>
-
-</div>
-  
 </body>
 </html>
