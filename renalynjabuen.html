@@ -6,6 +6,7 @@
 <title>Maison Aly</title>
 
 <style>
+
 body {
   margin: 0;
   font-family: 'Georgia', serif;
@@ -14,6 +15,7 @@ body {
 }
 
 /* HEADER */
+
 .header {
   text-align: center;
   padding: 40px 20px;
@@ -30,6 +32,7 @@ body {
 }
 
 /* CONTAINER */
+
 .container {
   max-width: 900px;
   margin: auto;
@@ -37,6 +40,7 @@ body {
 }
 
 /* CARD */
+
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,215,0,0.2);
@@ -44,9 +48,11 @@ body {
   padding: 30px;
   text-align: center;
   box-shadow: 0 0 30px rgba(255,215,0,0.1);
+  animation: fadeUp 1s ease;
 }
 
 /* LOGO */
+
 .logo {
   width: 250px;
   margin: 20px 0;
@@ -54,6 +60,7 @@ body {
 }
 
 /* SECTION */
+
 .section {
   margin-top: 30px;
 }
@@ -64,6 +71,7 @@ body {
 }
 
 /* TEXT */
+
 .text {
   line-height: 1.7;
   text-align: justify;
@@ -72,6 +80,7 @@ body {
 }
 
 /* IMAGE */
+
 .promo {
   width: 300px;
   border-radius: 10px;
@@ -84,15 +93,38 @@ body {
 }
 
 /* VIDEO */
+
 iframe {
   width: 100%;
   max-width: 450px;
   height: 250px;
   border-radius: 10px;
   margin-top: 20px;
+  border: none;
+}
+
+/* SUBMISSION */
+
+.submission {
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,215,0,0.2);
+}
+
+.submission h2 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.submission p {
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 /* BUTTON */
+
 .back-btn {
   display: inline-block;
   margin-top: 30px;
@@ -110,92 +142,148 @@ iframe {
   transform: scale(1.1);
 }
 
-/* FADE ANIMATION */
-.card {
-  animation: fadeUp 1s ease;
-}
+/* ANIMATION */
 
 @keyframes fadeUp {
+
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <div class="header">
+
   <h1>Renalyn Jabuen</h1>
-  <div class="brand">MAISON ALY CLOTHES</div>
+
+  <div class="brand">
+    MAISON ALY CLOTHES
+  </div>
+
 </div>
 
+<!-- CONTAINER -->
+
 <div class="container">
+
   <div class="card">
 
     <img src="logo1.jpg" class="logo">
 
     <!-- ABOUT -->
+
     <div class="section">
+
       <h2>About</h2>
+
       <p class="text">
-        The Maison Aly Clothes logo represents elegance, creativity, and personal identity. 
-        The name “Aly” is inspired by the owner’s name, Renalyn, giving the brand a meaningful 
-        and personal touch. The design features a hanger integrated within a house shape, 
-        symbolizing both fashion and comfort—clothing that feels like home. The gold color 
-        reflects sophistication, quality, and timeless style, while the overall design highlights 
-        the brand’s focus on clothing as a passion-driven business.
+        The Maison Aly Clothes logo represents elegance,
+        creativity, and personal identity. The name “Aly”
+        is inspired by the owner’s name, Renalyn, giving
+        the brand a meaningful and personal touch.
+
+        The design features a hanger integrated within a
+        house shape, symbolizing both fashion and comfort—
+        clothing that feels like home. The gold color reflects
+        sophistication, quality, and timeless style, while the
+        overall design highlights the brand’s focus on clothing
+        as a passion-driven business.
       </p>
+
     </div>
 
     <!-- VISION -->
+
     <div class="section">
+
       <h2>Vision</h2>
+
       <p class="text">
-        Maison Aly Clothes envisions becoming a trusted and inspiring clothing brand 
-        that represents elegance, creativity, and individuality, bringing confidence 
+        Maison Aly Clothes envisions becoming a trusted and
+        inspiring clothing brand that represents elegance,
+        creativity, and individuality, bringing confidence
         and comfort to every person.
       </p>
+
     </div>
 
     <!-- MISSION -->
+
     <div class="section">
+
       <h2>Mission</h2>
+
       <p class="text">
-         To provide high-quality, stylish, and affordable clothing that 
-        reflects personal identity while promoting comfort, creativity, and confidence 
+        To provide high-quality, stylish, and affordable
+        clothing that reflects personal identity while
+        promoting comfort, creativity, and confidence
         in every design.
       </p>
+
     </div>
 
-    <!-- IMAGE -->
+    <!-- COLLECTION -->
+
     <div class="section">
+
       <h2>Collection</h2>
+
       <img src="picture2.jpg" class="promo">
+
     </div>
 
     <!-- VIDEO -->
+
     <div class="section">
+
       <h2>Showcase</h2>
+
       <iframe src="https://www.youtube.com/embed/quJqSu00Se4"></iframe>
+
     </div>
 
-    <a href="group1.html" class="back-btn">← Back</a>
+    <!-- SUBMISSION -->
+
+    <div class="submission">
+
+      <h2>Submission Details</h2>
+
+      <p>
+        <b>SUBMITTED BY :</b> RENALYN M. JABUEN
+      </p>
+
+      <p>
+        <b>SUBMITTED TO :</b> MR. TITO AMERIGO V. CUSTODIO
+      </p>
+
+      <p>
+        <b>TEC 226</b>
+      </p>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+
+    <a href="group1.html" class="back-btn">
+      ← Back
+    </a>
 
   </div>
-</div>
-<!-- FOOTER -->
 
-<footer>
-<p>SUBMITTED BY : RENALYN M. JABUEN<p>
-<p>SUBMITTED TO : MR. TITO AMERIGO V. CUSTODIO<p>
-                  <p>TEC 226</p>
-</footer>
+</div>
 
 </body>
 </html>
